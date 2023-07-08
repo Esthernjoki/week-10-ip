@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: yolo-k8s-backend-service
+spec:
+  selector:
+    app: yolo-k8s
+    app.kubernetes.io/name: yolo-k8s-backend
+  ports:
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
