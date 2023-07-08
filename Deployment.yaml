@@ -1,10 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: yolo-k8s-deploment
+  name: yolo-k8s-statefulset
   labels:
-   app: yolo-k8s
+    app: yolo-k8s
 spec:
+  serviceName: yolo-k8s-service
+  replicas: 3
   selector:
     matchLabels:
       app: yolo-k8s
@@ -29,15 +31,20 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 5050
+        - containerPort: 3000
       - name: mongo
-      image: mongo
-      ports:
-      - containerPort: 27017
-      volumeMounts:
-      - name: mongo-storage
-        mountPath: /data/db
-  volumes:
-  - name: mongo-storage
-    persistentVolumeClaim:
-      claimName: mongo-pvc 
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-storage
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-storage
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
