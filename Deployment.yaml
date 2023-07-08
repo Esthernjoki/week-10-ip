@@ -36,7 +36,7 @@ spec:
         - configMapRef:
             name: mongo-configmap
       - name: mongo
-        image: mongo
+        image: warui1225/mongo:latest
         ports:
         - containerPort: 27017
         volumeMounts:
