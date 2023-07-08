@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo-k8s-mongo-db
+  labels:
+    app: yolo-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yolo-k8s
+  template:
+    metadata:
+      labels:
+        app: yolo-k8s
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-storage
+          mountPath: /data/db
+      volumes:
+      - name: mongo-storage
+        persistentVolumeClaim:
+          claimName: mongo-storage

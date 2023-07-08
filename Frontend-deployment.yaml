@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo-k8s-frontend
+  labels:
+    app: yolo-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: yolo-k8s
+  template:
+    metadata:
+      labels:
+        app: yolo-k8s
+    spec:
+      containers:
+      - name: yolo-k8s-frontend
+        image: warui1225/yolo-frontend:latest
+        resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+        ports:
+        - containerPort: 3000
