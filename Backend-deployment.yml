@@ -3,32 +3,38 @@ kind: Deployment
 metadata:
   name: yolo-k8s-backend-deployment
   labels:
-    app: yolo-k8s
+    app: yolo-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: yolo-k8s
+      app: yolo-backend
   template:
     metadata:
       labels:
-        app: yolo-k8s
+        app: yolo-backend
     spec:
       containers:
-      - name: yolo-k8s-backend
-        image: warui1225/yolo-backend:latest
-        resources:
+        - name: yolo-k8s-backend
+          image: warui1225/yolo-backend:latest
+          resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
             requests:
               memory: "64Mi"
               cpu: "250m"
-        ports:
+          ports:
             - containerPort: 5050
-        env:
+          env:
             - name: MONGO_URI
               valueFrom:
-                configMapKeyRef:
-                  name: mongo-configmap
+                secretKeyRef:
+                  name: mongodb-secret
                   key: MONGO_URI
+          volumeMounts:
+            - name: backend-storage
+              mountPath: /app/data
+      volumes:
+        - name: backend-storage
+          emptyDir: {}

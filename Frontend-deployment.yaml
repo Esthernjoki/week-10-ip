@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yolo-k8s-frontend-deployement
+  name: yolo-k8s-frontend-deployment
   labels:
     app: yolo-k8s-frontend
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: yolo-k8s-frontend
-        image: warui1225/yolo-app-frontend:latest
+        image: warui1225/yolo-frontend:latest
         ports:
         - containerPort: 3000
         resources:
