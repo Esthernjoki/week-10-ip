@@ -4,8 +4,8 @@ metadata:
   name: frontend-service
 spec:
   selector:
-    app: yolo-k8s
-    app.kubernetes.io/name: yolo-k8s-frontend
+    app: yolo-k8s-frontend
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3000

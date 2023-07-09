@@ -4,9 +4,10 @@ metadata:
   name: mongo-service
 spec:
   selector:
-    app: yolo-k8s
-    app.kubernetes.io/name: mongo
+    app: mongodb
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 27017
       targetPort: 27017
+      nodePort: 32000

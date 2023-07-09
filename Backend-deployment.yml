@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yolo-k8s-deployment
+  name: yolo-k8s-backend-deployment
   labels:
     app: yolo-k8s
 spec:
