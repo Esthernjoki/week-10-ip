@@ -5,7 +5,7 @@ metadata:
   labels:
     app: yolo-k8s
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: yolo-k8s
@@ -16,13 +16,6 @@ spec:
     spec:
       containers:
       - name: yolo-k8s-frontend
-        image: warui1225/yolo-frontend:latest
-        resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
+        image: warui1225/yolo-app-frontend:latest
         ports:
         - containerPort: 3000
