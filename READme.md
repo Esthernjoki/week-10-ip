@@ -1,6 +1,6 @@
 # Project Name
 
-## Deploy yolo app to kubernetes
+## Deploy Yolo App to Kubernetes
 
 #### Contributors
 
