@@ -25,17 +25,17 @@ spec:
             requests:
               cpu: "0.5"
               memory: "512Mi"
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: mongodb-secret
-                  key: username
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mongodb-secret
-                  key: password
+          # env:
+          #   - name: MONGO_INITDB_ROOT_USERNAME
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: mongodb-secret
+          #         key: MONGO_INITDB_ROOT_USERNAME
+          #   - name: MONGO_INITDB_ROOT_PASSWORD
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: mongodb-secret
+          #         key: MONGO_INITDB_ROOT_PASSWORD
           volumeMounts:
             - name: mongodb-data
               mountPath: /data/db
