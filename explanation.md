@@ -12,8 +12,8 @@ Create you deployment files for both the backend and client
 ## Step 3
 Create 2 services for both the backend and client services
 ## Step 4
-Create a secret file to hold you mongodb url -> if using a remote connection
-if you are using a deployed mongodb in K8S create the Deployment and service files and also add secrets for mongo username and password.
+Create a secret file to hold you mongodb url (if using a remote connection no need)
+if you are using a deployed mongodb in K8S  like mine create the Deployment and service files and also add secrets for mongo username and password.
 ## Step 5
 Deploy the file using below command
 
