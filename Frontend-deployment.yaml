@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: yolo-k8s-frontend
-        image: warui1225/yolo-frontend:latest
+        image: esthernjoki/yolo-frontend:latest
         ports:
         - containerPort: 3000
         resources:
