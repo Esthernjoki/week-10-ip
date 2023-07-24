@@ -4,12 +4,12 @@
 
 #### Contributors
 
-- Francis Warui Kinyuru
+- Esther Njoki
 
 July, 2023
 
 ## website/Live Site
-Git repo [here](https://github.com/franciskinyuru/Deploy-react-nodejs-app-k8s)
+Git repo [here](https://github.com/Esthernjoki/week-10-ip)
 ## Project Description
 Deploy a react webApp (Yolo) to K8S 
 ## Project Setup Instruction
